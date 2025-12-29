@@ -1,0 +1,36 @@
+.movies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.pagination button {
+  padding: 8px 14px;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.pagination span {
+  font-weight: bold;
+}
+.movies-grid {
+  list-style-type: none;
+  padding: 24px;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 24px;
+}
+
+.page-container {
+  min-height: 100vh;
+  background-color: #020617;
+}
