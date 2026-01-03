@@ -1,36 +1,49 @@
+/* Container for movie cards */
 .movies-grid {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 24px auto;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   gap: 20px;
-  padding: 20px;
+  width: 90%;
 }
 
+/* Pagination container */
 .pagination {
   display: flex;
-  justify-content: center;
   align-items: center;
-  margin-bottom: 20px;
+  justify-content: center;
+  gap: 16px;
+  margin: 30px 0;
 }
 
+/* Pagination buttons */
 .pagination button {
+  background-color: #2563eb;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
   padding: 8px 14px;
-  margin: 0 10px;
+  font-size: 14px;
   cursor: pointer;
+  transition: background-color 0.2s ease;
 }
 
+/* Hover state */
+.pagination button:hover {
+  background-color: #1d4ed8;
+}
+
+/* Disabled button */
+.pagination button:disabled {
+  background-color: #94a3b8;
+  cursor: not-allowed;
+}
+
+/* Page number */
 .pagination span {
-  font-weight: bold;
-}
-.movies-grid {
-  list-style-type: none;
-  padding: 24px;
-  margin: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 24px;
-}
-
-.page-container {
-  min-height: 100vh;
-  background-color: #020617;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1e293b;
 }

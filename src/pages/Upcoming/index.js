@@ -8,16 +8,11 @@ const Upcoming = () => {
   const [page, setPage] = useState(1)
 
   useEffect(() => {
-    const fetchUpcomingMovies = () => {
-      fetch(upcomingMoviesURL(page))
-        .then(response => response.json())
-        .then(data => {
-          setMovies(data.results)
-        })
-    }
+  fetch(upcomingMoviesURL(page))
+    .then(res => res.json())
+    .then(data => setMovies(data.results || []))
+}, [page])
 
-    fetchUpcomingMovies()
-  }, [page])
 
   return (
     <>
@@ -30,15 +25,15 @@ const Upcoming = () => {
       <div className="pagination">
         <button
           type="button"
-          onClick={() => setPage(page - 1)}
           disabled={page === 1}
+          onClick={() => setPage(prev => prev - 1)}
         >
           Prev
         </button>
 
-        <span>{page}</span>
+        <span className="page-number">{page}</span>
 
-        <button type="button" onClick={() => setPage(page + 1)}>
+        <button type="button" onClick={() => setPage(prev => prev + 1)}>
           Next
         </button>
       </div>

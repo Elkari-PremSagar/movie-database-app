@@ -8,16 +8,10 @@ const TopRated = () => {
   const [page, setPage] = useState(1)
 
   useEffect(() => {
-    const fetchTopRatedMovies = () => {
-      fetch(topRatedMoviesURL(page))
-        .then(response => response.json())
-        .then(data => {
-          setMovies(data.results)
-        })
-    }
-
-    fetchTopRatedMovies()
-  }, [page])
+  fetch(topRatedMoviesURL(page))
+    .then(res => res.json())
+    .then(data => setMovies(data.results || []))
+}, [page])
 
   return (
     <>
@@ -30,15 +24,15 @@ const TopRated = () => {
       <div className="pagination">
         <button
           type="button"
-          onClick={() => setPage(page - 1)}
           disabled={page === 1}
+          onClick={() => setPage(prev => prev - 1)}
         >
           Prev
         </button>
 
-        <span>{page}</span>
+        <span className="page-number">{page}</span>
 
-        <button type="button" onClick={() => setPage(page + 1)}>
+        <button type="button" onClick={() => setPage(prev => prev + 1)}>
           Next
         </button>
       </div>
